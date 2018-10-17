@@ -15,27 +15,39 @@ pipeline {
             post {
                 success {
                     sh "echo Collecting report"
-                    junit 'target/surefire-reports/**/*.xml'
+                    //junit 'target/surefire-reports/**/*.xml'
                 }
                 failure {
                     sh "echo Error"
                 }
             }
         }
+
         stage ('QA') {
             steps {
-                withSonarQubeEnv('SonarQube Server') {
+                withSonarQubeEnv('SonarQube') {
                     sh 'mvn sonar:sonar  -Dsonar.projectVersion=${BUILD_ID} -DskipTests '
                 }
 
             }
         }
+
+	stage("SonarQube Quality Gate") { 
+        	timeout(time: 1, unit: 'HOURS') { 
+           		def qg = waitForQualityGate() 
+           		if (qg.status != 'OK') {
+             			error "Pipeline aborted due to quality gate failure: ${qg.status}"
+           		}
+        	}
+	}	
+
         stage ('Archive') {
             steps {
                 sh "mvn package deploy -DskipTests"
             }
         }
-        stage ('Deploy') {
+        
+	stage ('Deploy Wildfly') {
             steps {
                 sh "mvn wildfly:deploy -DskipTests"
             }
