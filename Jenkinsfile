@@ -60,22 +60,22 @@ pipeline {
         
 	stage ('Deploy Wildfly') {
             steps {
-                sh "mvn wildfly:deploy -DskipTests"
+                sh "mvn package wildfly:deploy -DskipTests"
             }
         }
     }
 
-    post {
-        always {
-            cleanDir()
-        }
-        success {
-            mail to: "cursoci@localhost.localdomain", subject: "MSG", body: "Pipeline finalizado com sucesso"
-        }
-        failure {
-            mail to: "cursoci@localhost.localdomain", subject: "MSG", body: "Pipeline finalizado com erro"
-
-        }
-    }
+//    post {
+//        always {
+//            cleanDir()
+//        }
+//        success {
+//            mail to: "cursoci@localhost.localdomain", subject: "MSG", body: "Pipeline finalizado com sucesso"
+//        }
+//        failure {
+//            mail to: "cursoci@localhost.localdomain", subject: "MSG", body: "Pipeline finalizado com erro"
+//
+//        }
+//    }
 
 }
