@@ -5,13 +5,13 @@
   <version>0.0.1</version>
   <properties>
     <java.version>1.8</java.version>
+    <wildfly-hostname>192.168.56.101</wildfly-hostname>
+    <wildfly-port>10020</wildfly-port>
   </properties>
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
     <version>0.0.1.RELEASE</version>
-    <wildfly-hostname>192.168.56.101</wildfly-hostname>
-    <wildfly-port>10020</wildfly-port>
   </parent>
   <dependencies>
 		<dependency>
