@@ -2,7 +2,8 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.boraji.tutorial.springboot</groupId>
   <artifactId>spring-boot-hello-world-example</artifactId>
-  <version>0.0.1</version>
+  <version>0.0.2</version>
+  <packaging>war</packaging>
   <properties>
     <java.version>1.8</java.version>
     <wildfly-hostname>192.168.56.101</wildfly-hostname>
