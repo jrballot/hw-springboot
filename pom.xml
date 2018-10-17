@@ -29,11 +29,14 @@
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
   </dependencies>
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-maven-plugin</artifactId>
+	<build>
+		<finalName>helloworld</finalName>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+			<plugin>
 				<groupId>org.wildfly.plugins</groupId>
 				<artifactId>wildfly-maven-plugin</artifactId>
 				<version>1.2.1.Final</version>
@@ -41,6 +44,14 @@
 					<hostname>${wildfly-hostname}</hostname>
 					<port>${wildfly-port}</port>
 				</configuration>
+			</plugin>
+		</plugins>
+	</build>
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
       </plugin>
     </plugins>
   </build>
