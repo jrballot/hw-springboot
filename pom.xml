@@ -2,14 +2,16 @@
   <modelVersion>4.0.0</modelVersion>
   <groupId>com.boraji.tutorial.springboot</groupId>
   <artifactId>spring-boot-hello-world-example</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
+  <version>0.0.1</version>
   <properties>
     <java.version>1.8</java.version>
   </properties>
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.5.4.RELEASE</version>
+    <version>0.0.1.RELEASE</version>
+    <wildfly-hostname>192.168.56.101</wildfly-hostname>
+    <wildfly-port>10020</wildfly-port>
   </parent>
   <dependencies>
 		<dependency>
@@ -32,6 +34,13 @@
       <plugin>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-maven-plugin</artifactId>
+				<groupId>org.wildfly.plugins</groupId>
+				<artifactId>wildfly-maven-plugin</artifactId>
+				<version>1.2.1.Final</version>
+				<configuration>
+					<hostname>${wildfly-hostname}</hostname>
+					<port>${wildfly-port}</port>
+				</configuration>
       </plugin>
     </plugins>
   </build>
