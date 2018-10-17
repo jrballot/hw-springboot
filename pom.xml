@@ -29,24 +29,6 @@
       <artifactId>spring-boot-starter-web</artifactId>
     </dependency>
   </dependencies>
-	<build>
-		<finalName>helloworld</finalName>
-		<plugins>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-			<plugin>
-				<groupId>org.wildfly.plugins</groupId>
-				<artifactId>wildfly-maven-plugin</artifactId>
-				<version>1.2.1.Final</version>
-				<configuration>
-					<hostname>${wildfly-hostname}</hostname>
-					<port>${wildfly-port}</port>
-				</configuration>
-			</plugin>
-		</plugins>
-	</build>
   <build>
     <plugins>
       <plugin>
@@ -55,29 +37,6 @@
       </plugin>
     </plugins>
   </build>
-  <profiles>
-		<!-- PROFILES PARA O WILDFLY -->
-		<profile>
-			<id>wildfly-remote</id>
-			<properties>
-				<wildfly-hostname>199.168.0.5</wildfly-hostname>
-				<wildfly-port>9990</wildfly-port>
-				<wildfly-username>curso</wildfly-username>
-				<wildfly-password>123456</wildfly-password>
-			</properties>
-		</profile>
-
-		<profile>
-			<id>wildfly-local</id>
-			<properties>
-				<wildfly-home>/opt/wildfly </wildfly-home>
-				<wildfly-hostname>127.0.0.1</wildfly-hostname>
-				<wildfly-port>9990</wildfly-port>
-				<wildfly-username>curso</wildfly-username>
-				<wildfly-password>123456</wildfly-password>
-			</properties>
-		</profile>
- </profiles>
 	<distributionManagement>
 		<snapshotRepository>
 			<id>nexus-snapshots</id>
