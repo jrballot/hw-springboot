@@ -4,11 +4,13 @@
   <artifactId>spring-boot-hello-world-example</artifactId>
   <version>0.0.1</version>
   <packaging>war</packaging>
+  <!--
   <properties>
     <java.version>1.8</java.version>
     <wildfly-hostname>192.168.56.101</wildfly-hostname>
     <wildfly-port>10020</wildfly-port>
   </properties>
+  -->
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
@@ -59,6 +61,7 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<!--
 			<plugin>
 				<groupId>org.wildfly.plugins</groupId>
 				<artifactId>wildfly-maven-plugin</artifactId>
@@ -68,8 +71,10 @@
 					<port>${wildfly-port}</port>
 				</configuration>
 			</plugin>
+			-->
 		</plugins>
 	</build>
+	<!--
 	<distributionManagement>
 		<snapshotRepository>
 			<id>nexus-snapshots</id>
@@ -80,4 +85,5 @@
 			<url>http://192.168.56.101:9081/repository/maven-releases/</url>
 		</repository>
 	</distributionManagement>
+	-->
 </project>
